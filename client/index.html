@@ -2,17 +2,41 @@
 <html>
     <head>
         <title>test page</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
         <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <script type="text/javascript">
         	$(document).ready(function(){
-        		$('h1').text('cray cray')
+                $('#listTable tbody').append('<tr><td>blah</td><td>blah</td><td>blah</td><td>blah</td><td>blah</td><td>blah</td>');
+
+        		// $('h1').text('cray cray')
         	})
         </script>
     </head>
     <body>
-        <h1>YOOOO BOSS LIST shes cray</h1>
         <div id='wrapper'>
-            <div id='list'></div>
+            <div id='list'>
+                <H1>Task List</H1>
+                <table id='listTable'>
+                    <tbody>
+                    <tr>
+                        <th>ID</th>
+                        <th>Task Name</th>
+                        <th>Description</th>
+                        <th>Owner</th>
+                        <th>Due Date</th>
+                        <th>Create Date</th>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>Clean Gutters</td>
+                        <td>Clean the gutters before the basement floods</td>
+                        <td>Collin</td>
+                        <td>ASAP</td>
+                        <td>5/18/2017</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
             <div id='form'></div>
         </div>
     </body>

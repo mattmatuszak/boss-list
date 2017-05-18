@@ -1,0 +1,46 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+#wrapper {
+	width: 1024px;
+	height: 900px;
+	margin: auto auto;
+	/*border: 1px solid black;*/
+}
+
+#list {
+	width: 70%;
+	border: 1px solid black;
+	margin: auto auto;
+
+	/*margin-left: 225px;*/
+	/*border: black thin solid;*/
+}
+
+#table {}
+
+#list table {
+	/*border: black thin solid;*/
+	width: 100%;
+	/*padding-right: 50px;*/
+	/*margin-left: 50px;*/
+	/*width:800px;*/
+}
+
+h1 {
+	text-align: center;
+}
+
+#list th{
+	border: black 1px solid;
+	text-decoration: underline;
+
+}
+
+
+#list td {
+	border: black 1px solid;
+
+}
