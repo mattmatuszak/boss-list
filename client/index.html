@@ -6,8 +6,17 @@
         <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <script type="text/javascript">
         	$(document).ready(function(){
-                $('#listTable tbody').append('<tr><td>blah</td><td>blah</td><td>blah</td><td>blah</td><td>blah</td><td>blah</td>');
-
+         //        $('#listTable tbody').append('<tr><td>blah</td><td>blah</td><td>blah</td><td>blah</td><td>blah</td><td>blah</td>');
+                  $('#listTable tbody').append('<tr><td>blah</td><td>blah</td><td>blah</td><td>blah</td><td>blah</td><td>blah</td>');
+                        function buildTableData(){
+                            $.get('/api/v1/tasks',function(data){
+                                for (var i=0; i<data.length;i++){
+                                    console.log (data[i]);
+                                }
+                                // console.log (data);
+                            });
+                        }
+                    buildTableData();
         		// $('h1').text('cray cray')
         	})
         </script>
