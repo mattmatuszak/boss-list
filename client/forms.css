@@ -1,0 +1,16 @@
+#form{
+    display: table;
+    width: 100%;
+    margin: auto auto;
+}
+.row{
+    display: table-row;
+    vertical-align: top;
+}
+.cell{
+    display: table-cell;
+    vertical-align: top;
+}
+.label{
+    text-align: left;  
+}
