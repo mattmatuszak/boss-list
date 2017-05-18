@@ -7,10 +7,9 @@ module.exports = (function(){
         addTask: function(req, res){
             var id = Math.floor((Math.random() * 1000) + 1);
             req.body.id = id;
-            req.body.submitdate = new Date();
+            req.body.submitDate = new Date();
             taskList.push(req.body);
             res.json(req.body);
-        
         }
     }
 })();

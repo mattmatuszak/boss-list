@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>test page</title>
     <link rel="stylesheet" href="./forms.css">
+    <link rel="stylesheet" href="./style.css">
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+
+                function appendtask(task){
+
+                    $('#listTable tbody').append(`<tr><td>${task.id}</td><td>${task.taskName}</td><td>${task.description}</td><td>${task.owner}</td><td>${task.dueDate}</td><td>${task.submitDate}</td>`);
+                  }
+                  function buildTableData(){
+                            $.get('/api/v1/tasks',function(data){
+                                for (var i=0; i<data.length;i++){
+                                    appendtask(data[i]);
+                                    console.log(data[i]);
+                                }
+                                // console.log (data);
+                            });
+                        }
+                    buildTableData();
+
+
             $('#add_task').click(function() {
                 var data = {};
-                data.taskname = $('#taskname').val()
+                data.taskName = $('#taskname').val()
                 data.description = $('#description').val()
                 data.owner = $('#owner').val()
-                data.duedate = $('#due_date').val()
+                data.dueDate = $('#due_date').val()
                 $.post('/api/v1/tasks', data, function(resData) {
                     console.log(resData);
+                    appendtask(resData);
                 }, "json");
                 console.log(data);
             })
@@ -35,16 +53,10 @@
                         <th>Description</th>
                         <th>Owner</th>
                         <th>Due Date</th>
-                        <th>Create Date</th>
+                        <th>Submit Date</th>
                     </tr>
-                    <tr>
-                        <td>123</td>
-                        <td>Clean Gutters</td>
-                        <td>Clean the gutters before the basement floods</td>
-                        <td>Collin</td>
-                        <td>ASAP</td>
-                        <td>5/18/2017</td>
-                    </tr>
+                    </tbody>
+                </table>
                 </tbody>
             </table>
         </div>
