@@ -1,19 +1,73 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>test page</title>
-        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-        <script type="text/javascript">
-        	$(document).ready(function(){
-        		$('h1').text('cray cray')
-        	})
-        </script>
-    </head>
-    <body>
-        <h1>YOOOO BOSS LIST shes cray</h1>
-        <div id='wrapper'>
-            <div id='list'></div>
-            <div id='form'></div>
+
+<head>
+    <title>test page</title>
+    <link rel="stylesheet" href="./forms.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#add_task').click(function(){
+                var data = {};
+                data.taskname = $('#taskname').val()
+                data.description = $('#description').val()
+                data.owner = $('#owner').val()
+                data.duedate = $('#due_date').val()
+                $.post('/api/v1/tasks', data, function(resData){
+                    console.log(resData);
+                }, "json");
+                console.log(data);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <h1>YOOOO BOSS LIST shes cray</h1>
+    <div id='wrapper'>
+        <div id='list'></div>
+        <div id='form'>
+            <div class="row">
+                <div class="cell label">
+                    <label for="taskname">Task Name:</label>
+                </div>
+                <div class="cell">
+                    <input type="text" name="taskname" id="taskname">
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell label">
+                    <label for="description">Description:</label>
+                </div>
+                <div class="cell">
+                    <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell label">
+                    <label for="owner">Owner:</label>
+                </div>
+                <div class="cell">
+                    <input type="text" name="owner" id="owner">
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell label">
+                    <label for="due_date">Due Date:</label>
+                </div>
+                <div class="cell">
+                    <input type="date" id="due_date">
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell label">
+                    <p>&nbsp;</p>
+                </div>
+                <div class="cell">
+                    <button id="add_task">Add Task</button>
+                </div>
+            </div>
         </div>
-    </body>
+</body>
+
 </html>
