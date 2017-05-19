@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>test page</title>
     <link rel="stylesheet" href="./forms.css">
@@ -8,20 +9,21 @@
     <script type="text/javascript">
         $(document).ready(function() {
 
-                function appendtask(task){
+            function appendtask(task) {
 
-                    $('#listTable tbody').append(`<tr><td>${task.id}</td><td>${task.taskName}</td><td>${task.description}</td><td>${task.owner}</td><td>${task.dueDate}</td><td>${task.submitDate}</td>`);
-                  }
-                  function buildTableData(){
-                            $.get('/api/v1/tasks',function(data){
-                                for (var i=0; i<data.length;i++){
-                                    appendtask(data[i]);
-                                    console.log(data[i]);
-                                }
-                                // console.log (data);
-                            });
-                        }
-                    buildTableData();
+                $('#listTable tbody').append(`<tr><td>${task.id}</td><td>${task.taskName}</td><td>${task.description}</td><td>${task.owner}</td><td>${task.dueDate}</td><td>${task.submitDate}</td>`);
+            }
+
+            function buildTableData() {
+                $.get('/api/v1/tasks', function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        appendtask(data[i]);
+                        console.log(data[i]);
+                    }
+                    // console.log (data);
+                });
+            }
+            buildTableData();
 
 
             $('#add_task').click(function() {
@@ -55,9 +57,9 @@
                         <th>Due Date</th>
                         <th>Submit Date</th>
                     </tr>
-                    </tbody>
-                </table>
                 </tbody>
+            </table>
+            </tbody>
             </table>
         </div>
         <div id='form'>
