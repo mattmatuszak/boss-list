@@ -1,20 +1,24 @@
 var api = require('../controllers/api.js')
-var mysocket = {message: 'dummyobject'};
+var mysocket = null;
 
 module.exports = function(app, io) {
 
   io.sockets.on('connection', function(socket) {
-    console.log("WE ARE USING SOCKETS!");
-    console.log(`socket id:${socket.id}`);
-    //all the socket code goes in here!
-    mysocket = socket;
 
-    socket.on("allTableDataLoaded", function(data) {
-      console.log('Loaded all the data and setup their socker!  Reason: ' + data.reason);
-      socket.emit('allTableDataLoadedResponse', {
-        response: "great, I'm glad this worked out for you!"
+    if (mysocket === null) {
+
+      console.log("WE ARE USING SOCKETS!");
+      console.log(`socket id:${socket.id}`);
+      //all the socket code goes in here!
+      mysocket = socket;
+
+      mysocket.on("allTableDataLoaded", function(data) {
+        console.log('Loaded all the data and setup their socker!  Reason: ' + data.reason);
+        mysocket.emit('allTableDataLoadedResponse', {
+          response: "great, I'm glad this worked out for you!"
+        });
       });
-    });
+    }
   });
 
 
