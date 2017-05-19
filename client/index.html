@@ -16,6 +16,12 @@
                 console.log('The server responded: ' + data.response);
             });
 
+            socket.on('newTask', function(data) {
+                console.log('got event with data...');
+                console.log(data);
+                appendtask(data);
+            });
+
 
             function appendtask(task) {
                 $('#listTable tbody').append(`<tr><td>${task.id}</td><td>${task.taskName}</td><td>${task.description}</td><td>${task.owner}</td><td>${task.dueDate}</td><td>${task.submitDate}</td>`);
