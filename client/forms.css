@@ -1,7 +1,9 @@
 #form{
     display: table;
-    width: 100%;
+    width: 70%;
     margin: auto auto;
+    margin-top:  10px;
+    background-color: #346f9d;
 }
 .row{
     display: table-row;
@@ -10,7 +12,22 @@
 .cell{
     display: table-cell;
     vertical-align: top;
+    padding-top: 10px;
 }
 .label{
-    text-align: left;  
+    text-align: right; 
+    padding-top: 10px; 
+    padding-right: 10px;
+    color: white;
+}
+button {
+	background-color: #00abd3;
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 12pt;
+    border-radius: 10px 10px 10px 10px;
 }
